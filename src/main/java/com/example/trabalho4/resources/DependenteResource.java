@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.trabalho4.entities.Empregado;
-import com.example.trabalho4.services.EmpregadoService;
+import com.example.trabalho4.entities.Dependente;
+import com.example.trabalho4.services.DependenteService;
 
 @RestController
-@RequestMapping(value = "/Empregados")
-public class EmpregadoResource {
+@RequestMapping(value = "/Dependentes")
+public class DependenteResource {
 	
 	@Autowired
-	private EmpregadoService service;
+	private DependenteService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Empregado>> findAll() {
-		List<Empregado> list = service.findAll();
+	public ResponseEntity<List<Dependente>> findAll() {
+		List<Dependente> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Empregado> findById(@PathVariable Long id) {
-		Empregado obj = service.findById(id);
+	public ResponseEntity<Dependente> findById(@PathVariable Long id) {
+		Dependente obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
